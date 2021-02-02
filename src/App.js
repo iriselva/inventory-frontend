@@ -1,23 +1,39 @@
+import {Fragment, useEffect, useState} from 'react';
 import logo from './logo.svg';
+import LoginPage from './LoginPage';
 import './App.css';
 
 function App() {
+  const [token, setToken] = useState();
+
+  useEffect ( () => {
+    fetch (`${process.env.REACT_APP_BACKEND_URL}/test`).then((r) => {
+      console.log(process.env)
+    })
+   }, []);
+
+
+   function getCurrentUser() {
+    const requestOptions = {
+      method: 'GET',
+      headers: { 'Authorization': `Bearer ${token}` }
+    }
+
+    fetch (`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
+      .then((r) => {
+        return r.json();
+      })
+      .then((response) => {
+        console.log(response);
+      })
+   }
+   if (!token) {
+     return <LoginPage setToken={setToken}/>
+   }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      Inventory page here
     </div>
   );
 }
