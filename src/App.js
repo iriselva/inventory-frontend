@@ -1,7 +1,9 @@
 import {Fragment, useEffect, useState} from 'react';
-import logo from './logo.svg';
 import LoginPage from './LoginPage';
 import './App.css';
+import InventoryList from './components/pages/ItemList/ItemList';
+import SignUp from './SignUpPage';
+
 
 function App() {
   const [token, setToken] = useState();
@@ -33,7 +35,7 @@ function App() {
 
   return (
     <div className="App">
-      Inventory page here
+      <InventoryList />
     </div>
   );
 }
