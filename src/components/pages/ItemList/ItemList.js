@@ -1,7 +1,7 @@
 import React from 'react'
-import { ItemCard } from '../ItemCard'
+import { ItemCard } from './ItemCard'
 
-const InventoryList = () => {
+const ItemList = () => {
     return (
         <div>
             <ItemCard />
@@ -9,5 +9,5 @@ const InventoryList = () => {
     )
 }
 
-export default InventoryList
+export default ItemList
 
