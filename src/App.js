@@ -1,7 +1,7 @@
-import {Fragment, useEffect, useState} from 'react';
-import logo from './logo.svg';
+import {useEffect, useState} from 'react';
 import LoginPage from './LoginPage';
-import './App.css';
+// import './App.css';
+import SignUp from './SignUpPage';
 
 function App() {
   const [token, setToken] = useState();
