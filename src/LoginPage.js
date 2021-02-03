@@ -23,6 +23,7 @@ const LoginPage = ({setToken}) => {
       })
       .then((response) => {
         setToken(response.access_token);
+        
         console.log(response);
       }).finally(() => setLoading(false))
    }
