@@ -1,4 +1,3 @@
-import { render } from '@testing-library/react';
 import {useState} from 'react';
 import {withRouter} from 'react-router-dom';
 import styled from "styled-components";
@@ -33,8 +32,7 @@ const LoginPage = ({setToken, history}) => {
       })
       .then((response) => {
         setToken(response.access_token);
-        
-        console.log(response);
+        history.push('/inventory')
       }).finally(() => setLoading(false))
    }
 

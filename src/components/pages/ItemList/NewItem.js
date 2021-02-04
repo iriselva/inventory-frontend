@@ -1,6 +1,7 @@
 import React, {useState } from "react";
 
-const NewItem = () => {
+
+const NewItem = ({token}) => {
   const [loading, setLoading] = useState(false);
   const [item, setItem] = useState('');
   const [itemType, setItemType] = useState('');
@@ -11,7 +12,7 @@ const NewItem = () => {
   const [price, setPrice] = useState('');
   const [image, setImage] = useState('');
   
-  function NewItem() {
+  function CreateNewItem() {
     const data = JSON.stringify({
       item: item,
       itemType: itemType,
@@ -83,7 +84,7 @@ const NewItem = () => {
           <label>image:
           <input value={image} onChange={(e) => {setImage(e.target.value)}}/>
           </label>
-          <button disabled={loading} type="button" onClick={NewItem}>make new</button>
+          <button disabled={loading} type="button" onClick={CreateNewItem}>make new</button>
         </form>
       </div>
     </div>

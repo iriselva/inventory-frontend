@@ -18,7 +18,7 @@ const SignUpPage = ({history}) => {
       }, 3000)
     }
 
-  }, [showSuccessMsg]);
+  }, [showSuccessMsg, history]);
 
   async function SignUp() {
     if (password !== confirmPassword) {

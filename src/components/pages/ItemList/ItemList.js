@@ -1,7 +1,8 @@
 import React from 'react'
 import { ItemCard } from './ItemCard'
 
-const ItemList = () => {
+
+const ItemList = ({token}) => {
     return (
         <div>
             <ItemCard />

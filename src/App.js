@@ -1,5 +1,5 @@
-// import {Fragment, useEffect, useState} from 'react';
-// import InventoryList from './components/pages/ItemList/ItemList';
+import {useState} from 'react';
+import ItemList from './components/pages/ItemList/ItemList';
 // import NewItem from './components/pages/ItemList/NewItem';
 // import '../App.css';
 import { Switch, Route } from "react-router-dom";
@@ -9,32 +9,8 @@ import FrontPage from './Pages/FrontPage';
 import {StyledContainer} from './styles/FormStyles';
 
 function App() {
-  // const [token, setToken] = useState();
+  const [token, setToken] = useState();
 
-  // useEffect ( () => {
-  //   fetch (`${process.env.REACT_APP_BACKEND_URL}/test`).then((r) => {
-  //     console.log(process.env)
-  //   })
-  //  }, []);
-
-
-  //  function getCurrentUser() {
-  //   const requestOptions = {
-  //     method: 'GET',
-  //     headers: { 'Authorization': `Bearer ${token}` }
-  //   }
-
-  //   fetch (`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
-  //     .then((r) => {
-  //       return r.json();
-  //     })
-  //     .then((response) => {
-  //       console.log(response);
-  //     })
-  //  }
-  //  if (!token) {
-  //    return <NewItemPage setToken={setToken}/>
-  //  }
 
   return (
     <StyledContainer>
@@ -47,8 +23,13 @@ function App() {
           <SignUpPage />
         </Route>
         <Route exact path="/login">
-          <LoginPage />
+          <LoginPage setToken={setToken}/>
         </Route>
+        {token && 
+          <Route exact path="/inventory">
+            <ItemList token={token}/>
+          </Route>
+        }
       </Switch>
     </StyledContainer>
   );
