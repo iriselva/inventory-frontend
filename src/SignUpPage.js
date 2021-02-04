@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
+import {StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton} from "./FormStyles";
 
-const SignUpPage = () => {
+
+const SignUpPage = ({onSignupDone}) => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
 
-  function SignUp() {
+  async function SignUp() {
     if (password !== confirmPassword) {
       alert("Passwords don't match");
       return;
@@ -26,50 +28,47 @@ const SignUpPage = () => {
     }
 
     setLoading(true);
-
-    fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
-      .then((response) => {
-        if (response.status < 200 || response.status >= 300) {
-          const err = new Error();
-          err.status = response.status;
-          throw err;
-        }
-        return response.json();
-      })
-      .then((response) => {
-        console.log(response);
-      })
-      .catch((err) => {
+    
+    try {
+      const response = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
+      const returnData = await response.json();
+      if (response.status < 200 || response.status >= 300) {
+        const err = new Error(returnData?.detail ?? 'Something went wrong, try again later');
+        err.status = response.status;
+        throw err;
+      }
+      onSignupDone();
+    } catch(err) { 
         if (err.status === 409) {
           alert('This email is already in use');
         } else {
-          console.log(err);
-          console.log(err.status);
-          alert('Something went wrong, try again later');
+          alert(err);
         }
-      })
-      .finally(() => setLoading(false))
+    }
+     
+    setLoading(false);
+   
   }
 
   return (
     <div>
-      <div className="signUp">
-        <form>
-          <label>Username:
-          <input value={username} onChange={(e) => {setUsername(e.target.value)}}/>
-          </label>
-          <label>Email:
-          <input type='email' value={email} onChange={(e) => {setEmail(e.target.value)}}/>
-          </label>
-          <label>Password:
-          <input type='password' value={password} onChange={(e) => {setPassword(e.target.value)}}/>
-          </label>
-          <label>Confirm Password:
-          <input type='password' value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/>
-          </label>
-          <button disabled={loading} type="button" onClick={SignUp}>Register</button>
-        </form>
-      </div>
+      <StyledContainer className="signUp">
+        <StyledForm>
+          <StyledLabel>Username</StyledLabel>
+          <StyledInput value={username} onChange={(e) => {setUsername(e.target.value)}}/><br/>
+          
+          <StyledLabel>Email</StyledLabel>
+          <StyledInput type='email' value={email} onChange={(e) => {setEmail(e.target.value)}}/><br/>
+          
+          <StyledLabel>Password</StyledLabel>
+          <StyledInput type='password' value={password} onChange={(e) => {setPassword(e.target.value)}}/><br/>
+          
+          <StyledLabel>Confirm Password</StyledLabel>
+          <StyledInput type='password' value={confirmPassword} onChange={(e) => {setConfirmPassword(e.target.value)}}/><br/>
+          
+          <StyledLoginButton disabled={loading} type="button" onClick={SignUp}>Register</StyledLoginButton>
+        </StyledForm>
+      </StyledContainer>
     </div>
   );
 }
