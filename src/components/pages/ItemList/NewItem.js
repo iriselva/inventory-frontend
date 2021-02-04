@@ -45,7 +45,7 @@ const NewItem = () => {
       })
       .then((response) => {
         console.log(response);
-//item successfyully created
+        //item successfyully created
       })
       .catch((err) => {
         console.log(err);
