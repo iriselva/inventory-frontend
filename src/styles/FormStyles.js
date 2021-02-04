@@ -23,6 +23,11 @@ export const StyledForm = styled.form`
 `;
 
 export const StyledLabel = styled.label`
+margin-bottom: 1rem;
+`;
+
+export const StyledSuccessMsg = styled.label`
+  color:green;
 `;
 
 export const StyledInput = styled.input`
@@ -38,7 +43,7 @@ export const StyledLoginButton = styled.button`
   color: white;
   border-radius: 4px;
   font-weight: bold;
-  padding: 4px;
+  padding: 6px;
     &:hover {
       background-color: #303030;
     }

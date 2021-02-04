@@ -1,25 +1,15 @@
 import { render } from '@testing-library/react';
 import {useState} from 'react';
+import {withRouter} from 'react-router-dom';
 import styled from "styled-components";
-import {StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton} from "./FormStyles";
-import SignUpPage from './SignUpPage';
+import {StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton} from "../styles/FormStyles";
 
 
-const StyledNewButton = styled.button`
-  border: none;
-  background-color: #505050;
-  color: white;
-  border-radius: 4px;
-  font-weight: bold;
-  padding: 4px;
+const StyledNewButton = styled(StyledLoginButton)`
   width: 150px;
-    &:hover {
-      background-color: #303030;
-    }
 `;
 
-const LoginPage = ({setToken}) => {
-  const [showSignup, setShowSignup] = useState(false);
+const LoginPage = ({setToken, history}) => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -51,7 +41,6 @@ const LoginPage = ({setToken}) => {
     return (
         <StyledContainer className="App">
 
-          <h2>Art Inventory</h2>
             <StyledForm>
                 <StyledLabel>Username</StyledLabel>
                 <StyledInput value={username} onChange={(e) => {setUsername(e.target.value)}}/><br/>
@@ -64,13 +53,12 @@ const LoginPage = ({setToken}) => {
             </StyledForm>
             
             <div>
-              <StyledNewButton onClick={() => setShowSignup(!showSignup)}>New User</StyledNewButton>
+              <StyledNewButton onClick={() => history.push('/signup')}>New User</StyledNewButton>
             </div>
             
-          {showSignup && <SignUpPage onSignupDone={() => setShowSignup(false)} />}
         </StyledContainer>
 
     )
 } 
 
-export default LoginPage;
+export default withRouter(LoginPage);

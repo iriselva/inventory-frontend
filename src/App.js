@@ -6,6 +6,7 @@ import { Switch, Route } from "react-router-dom";
 import SignUpPage from './Pages/SignUpPage';
 import LoginPage from './Pages/LoginPage';
 import FrontPage from './Pages/FrontPage';
+import {StyledContainer} from './styles/FormStyles';
 
 function App() {
   // const [token, setToken] = useState();
@@ -36,7 +37,8 @@ function App() {
   //  }
 
   return (
-    <div>
+    <StyledContainer>
+      <h2>Creative Inventory</h2>
       <Switch>
         <Route exact path="/">
           <FrontPage />
@@ -48,7 +50,7 @@ function App() {
           <LoginPage />
         </Route>
       </Switch>
-    </div>
+    </StyledContainer>
   );
 }
 

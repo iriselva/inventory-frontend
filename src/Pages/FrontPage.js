@@ -1,9 +1,11 @@
-function FrontPage() {
+import {withRouter} from 'react-router-dom';
+
+function FrontPage({history}) {
   return (
     <div>
-      <h1>FrontPage</h1>
+      <button onClick={() => history.push('/login')}>Go to login</button>
     </div>
   );
 }
 
-export default FrontPage;
+export default withRouter(FrontPage);
