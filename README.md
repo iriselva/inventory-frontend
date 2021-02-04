@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+# Backend and Infrastructure
+## Module 5 group project for Web development in Reykjavik Technical School
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+For this project our group used the FARM stack (FastAPI, React, MongoDB)
+> [Project Back-end](https://github.com/iriselva/Inventory)
 
-## Available Scripts
+We started with the FastAPI Swagger and connected it to a database in MongoDB. The database is then hosted on Heroku. We also created simple example frontend with React. In the application you can create a user and login. The loggin will give you an authenication token to secure your account. After loggin in you can create your own inventory database, list the items, delete and update.
 
-In the project directory, you can run:
+## Creative Inventory API
 
-### `yarn start`
+The inspiration for this web application is for creative people and artist to have an online place to organize and keep inventory of their creations. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+In the future we want to add more security and a better front-end infrastructure to hande all of the database objects. 
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+We hope you like it!
 
-### `yarn test`
+## Files
++ [SRC folder](src)
++ [Pages](src/Pages)
++ [Styles](src/styles)
++ [App.js](src/App.js)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Front-end
+We have two frontends in process on Github
++ [Frontend Test Client repository](https://github.com/Pauneren/inventory-test-client) LIVE!
++ [Creative Inventory Frontend repository](https://github.com/iriselva/inventory-frontend)
 
-### `yarn build`
+## Live version
+Link to the live verion of the web application (Heroku)
+>  [Creative Inventory](https://inventory-test-client.herokuapp.com/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Recources
+This project was made with:
++ VS Code
++ Python
++ MongoDB
++ FastAPI
++ React
++ Heroku
++ Trello
++ And more..
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Creators
+Made with love by these talented Web development students!
++ [Iris Elva Olafsdottir](https://github.com/iriselva)
++ [Kolbrun Jonsdottir](https://github.com/kollaaj)
++ [Paula Nerenberg](https://github.com/Pauneren)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---

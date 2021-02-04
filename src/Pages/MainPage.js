@@ -1,6 +1,6 @@
 import {withRouter} from 'react-router-dom';
 
-function FrontPage({history}) {
+function MainPage({history}) {
   return (
     <div>
       <button onClick={() => history.push('/login')}>Go to login</button>
@@ -8,4 +8,4 @@ function FrontPage({history}) {
   );
 }
 
-export default withRouter(FrontPage);
+export default withRouter(MainPage);

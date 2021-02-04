@@ -8,7 +8,7 @@ const StyledNewButton = styled(StyledLoginButton)`
   width: 150px;
 `;
 
-const LoginPage = ({setToken, history}) => {
+const LoginPage = ({ setToken, history }) => {
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
