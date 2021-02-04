@@ -2,6 +2,7 @@
 ## Module 5 group project for Web development in Reykjavik Technical School
 
 For this project our group used the FARM stack (FastAPI, React, MongoDB)
+> [Project Back-end](https://github.com/iriselva/Inventory)
 
 We started with the FastAPI Swagger and connected it to a database in MongoDB. The database is then hosted on Heroku. We also created simple example frontend with React. In the application you can create a user and login. The loggin will give you an authenication token to secure your account. After loggin in you can create your own inventory database, list the items, delete and update.
 
@@ -14,11 +15,10 @@ In the future we want to add more security and a better front-end infrastructure
 We hope you like it!
 
 ## Files
-+ [main.py](main.py) - Main app FastAPI
-+ [models.py](models.py) - Basemodels and validations
-+ [users.py](users.py) - Users functions (GET, POST, DELETE)
-+ [inventory.py](inventory.py) - Inventory functions (GET, POST, DELETE, PATCH) 
-+ [mysecurity.py](mysecurity.py) - Security functions (Access token, OAuth2, JWT)
++ [SRC folder](src)
++ [Pages](src/Pages)
++ [Styles](src/styles)
++ [App.js](src/App.js)
 
 ## Front-end
 We have two frontends in process on Github
