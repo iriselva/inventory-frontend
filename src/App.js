@@ -1,15 +1,16 @@
-// import {Fragment, useEffect, useState} from 'react';
+import { useState } from 'react'; // Fragment, useEffect, 
 // import InventoryList from './components/pages/ItemList/ItemList';
 // import NewItem from './components/pages/ItemList/NewItem';
 // import '../App.css';
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, useHistory } from "react-router-dom";
 import SignUpPage from './Pages/SignUpPage';
 import LoginPage from './Pages/LoginPage';
-import FrontPage from './Pages/FrontPage';
-import {StyledContainer} from './styles/FormStyles';
+import MainPage from './Pages/MainPage';
+import { StyledContainer } from './styles/FormStyles';
 
 function App() {
-  // const [token, setToken] = useState();
+  const [token, setToken] = useState();
+  const history = useHistory();
 
   // useEffect ( () => {
   //   fetch (`${process.env.REACT_APP_BACKEND_URL}/test`).then((r) => {
@@ -33,7 +34,7 @@ function App() {
   //     })
   //  }
   //  if (!token) {
-  //    return <NewItemPage setToken={setToken}/>
+  //    return < setToken={setToken}/>
   //  }
 
   return (
@@ -41,13 +42,13 @@ function App() {
       <h2>Creative Inventory</h2>
       <Switch>
         <Route exact path="/">
-          <FrontPage />
+          <MainPage />
         </Route>
         <Route exact path="/signup">
-          <SignUpPage />
+          <SignUpPage history={history} />
         </Route>
         <Route exact path="/login">
-          <LoginPage />
+          <LoginPage setToken={setToken} />
         </Route>
       </Switch>
     </StyledContainer>

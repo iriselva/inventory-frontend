@@ -1,9 +1,8 @@
-import React, {useEffect, useState} from "react";
-import {withRouter} from 'react-router-dom';
-import {StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton, StyledSuccessMsg} from "../styles/FormStyles";
+import React, { useEffect, useState } from "react";
+import { withRouter } from 'react-router-dom';
+import { StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton, StyledSuccessMsg } from "../styles/FormStyles";
 
-
-const SignUpPage = ({history}) => {
+const SignUpPage = ({ history }) => {
   const [showSuccessMsg, setShowSuccess] = useState(false);
   const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState('');
@@ -17,8 +16,7 @@ const SignUpPage = ({history}) => {
         history.push('/login');
       }, 3000)
     }
-
-  }, [showSuccessMsg]);
+  }, [showSuccessMsg, history]);
 
   async function SignUp() {
     if (password !== confirmPassword) {
