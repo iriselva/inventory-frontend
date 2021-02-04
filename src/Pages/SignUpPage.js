@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState} from "react";
 import {StyledContainer, StyledForm, StyledLabel, StyledInput, StyledLoginButton} from "./FormStyles";
 
 

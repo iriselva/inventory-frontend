@@ -71,7 +71,6 @@ const LoginPage = ({setToken}) => {
         </StyledContainer>
 
     )
-
 } 
 
-export default LoginPage
+export default LoginPage;
