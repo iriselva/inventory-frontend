@@ -8,7 +8,7 @@ import LoginPage from './Pages/LoginPage';
 import MainPage from './Pages/MainPage';
 import { StyledContainer } from './styles/FormStyles';
 
-function App() {
+function App({history}) {
   const [token, setToken] = useState();
 
   return (
