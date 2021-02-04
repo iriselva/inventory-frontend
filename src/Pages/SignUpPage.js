@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const SignUpPage = () => {
   const [loading, setLoading] = useState(false);

@@ -1,41 +1,53 @@
-import {Fragment, useEffect, useState} from 'react';
-import LoginPage from './LoginPage';
-import './App.css';
-import InventoryList from './components/pages/ItemList/ItemList';
-import SignUp from './SignUpPage';
-
+// import {Fragment, useEffect, useState} from 'react';
+// import InventoryList from './components/pages/ItemList/ItemList';
+// import NewItem from './components/pages/ItemList/NewItem';
+// import '../App.css';
+import { Switch, Route } from "react-router-dom";
+import SignUpPage from './Pages/SignUpPage';
+import LoginPage from './Pages/LoginPage';
+import FrontPage from './Pages/FrontPage';
 
 function App() {
-  const [token, setToken] = useState();
+  // const [token, setToken] = useState();
 
-  useEffect ( () => {
-    fetch (`${process.env.REACT_APP_BACKEND_URL}/test`).then((r) => {
-      console.log(process.env)
-    })
-   }, []);
+  // useEffect ( () => {
+  //   fetch (`${process.env.REACT_APP_BACKEND_URL}/test`).then((r) => {
+  //     console.log(process.env)
+  //   })
+  //  }, []);
 
 
-   function getCurrentUser() {
-    const requestOptions = {
-      method: 'GET',
-      headers: { 'Authorization': `Bearer ${token}` }
-    }
+  //  function getCurrentUser() {
+  //   const requestOptions = {
+  //     method: 'GET',
+  //     headers: { 'Authorization': `Bearer ${token}` }
+  //   }
 
-    fetch (`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
-      .then((r) => {
-        return r.json();
-      })
-      .then((response) => {
-        console.log(response);
-      })
-   }
-   if (!token) {
-     return <LoginPage setToken={setToken}/>
-   }
+  //   fetch (`${process.env.REACT_APP_BACKEND_URL}/users`, requestOptions)
+  //     .then((r) => {
+  //       return r.json();
+  //     })
+  //     .then((response) => {
+  //       console.log(response);
+  //     })
+  //  }
+  //  if (!token) {
+  //    return <NewItemPage setToken={setToken}/>
+  //  }
 
   return (
-    <div className="App">
-      <InventoryList />
+    <div>
+      <Switch>
+        <Route exact path="/">
+          <FrontPage />
+        </Route>
+        <Route exact path="/signup">
+          <SignUpPage />
+        </Route>
+        <Route exact path="/login">
+          <LoginPage />
+        </Route>
+      </Switch>
     </div>
   );
 }
