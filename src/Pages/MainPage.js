@@ -43,7 +43,6 @@ const service = {
       }, 
       body: data,
     }
-
     return fetch(`${process.env.REACT_APP_BACKEND_URL}/inventory`, requestOptions)
       .then((response) => {
         if (response.status < 200 || response.status >= 300) {
@@ -137,7 +136,7 @@ const MainPage = ({token}) => {
             label="Price"
           />
           <Field 
-            name="type_of_item" 
+            name="itemType" 
             label="Type"
           />
         </Fields>
